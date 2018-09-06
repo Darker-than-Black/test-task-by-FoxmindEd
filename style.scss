@@ -38,8 +38,6 @@ body {
 .wrapper {
 	max-width: var(--blockWidth);
 	margin: 0 auto;
-	
-	//height: 700px;
 }
 
 
@@ -187,10 +185,11 @@ body {
     	text-decoration: none;
     	@media screen and (max-width: 768px) {
     		padding: .73em 1.75em;
+	    		&:hover {
+	    		background: linear-gradient(to right, #ffd25b 0%,#ffffff 95%);
+	    	}
     	}
-    	&:hover {
-    		background: linear-gradient(to right, #ffd25b 0%,#ffffff 95%);
-    	}
+    	
 	}
 
 }
@@ -205,7 +204,6 @@ body {
     position: relative;
     @media screen and (max-width: 1024px) {
     	justify-content: start;
-    	//justify-content: flex-end;
 	}
     &__title {
     	position: absolute;
@@ -255,13 +253,11 @@ body {
 		flex-direction: column;
 		justify-content: center;
 		margin: 0;
-		//transition: all ease .5s;
 		transition: all ease .5s;
 		transition-delay: .075s;
 	}
 	@media screen and (max-width: 720px) {
 		height: auto;
-		//padding: .5rem 0 .5rem;
 	}
 	&__triangle {
 		position: absolute;
@@ -363,15 +359,10 @@ body {
 		    -ms-transform: skew(var(--angle));
 		     -o-transform: skew(var(--angle));
 		        transform: skew(var(--angle));
-	    //position: absolute;
-	    //position: relative;
 	    padding: 0;
 	    margin: 1.75rem 0;
 	    transition: all ease 1.7s;
 	    @include skewNorm;
-	    @media screen and (max-width: 1024px) {
-			//position: static;
-		}
 	    li {
 	    	list-style: none;
 	    	margin: 1em;
@@ -481,9 +472,6 @@ body {
 	0%{
 		opacity: 0;
 	}
-	/* 90%{
-		opacity: 0;
-	} */
 	100%{
 		opacity: 1;
 	}
@@ -492,9 +480,6 @@ body {
 	0%{
 		border-left: var(--widthBtnMobile) solid rgba(0,0,0,0);
 	}
-	/* 90%{
-		border-left: var(--widthBtnMobile) solid rgba(0,0,0,0);
-	} */
 	100%{
 		border-left: var(--widthBtnMobile) solid var(--bgLeft);
 	}
