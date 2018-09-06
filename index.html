@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FoxmindEd</title>
+
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	
+	<header class="wrapper">
+		<div class="navbar">
+			<div class="navbar__brand">
+				<a href=""><img src="image/Logo.png" alt="logo" class="brand__img"></a>
+			</div>
+			<div class="navbar__toggler">
+				<span class="toggler__line--first"></span>
+				<span class="toggler__line--second"></span>
+				<span class="toggler__line--third"></span>
+			</div>
+			<ul class="navbar__nav">
+				<li class="nav__item"><a href="">ГЛАВНАЯ</a></li>
+				<li class="nav__item"><a href="">СТРАНИЦА 1</a></li>
+				<li class="nav__item"><a href="">СТРАНИЦА 2</a></li>
+				<li class="nav__item"><a href="">СТРАНИЦА 3</a></li>
+				<li class="nav__item"><a href="">СТРАНИЦА 4</a></li>
+			</ul>
+		</div>
+	</header>
+
+	<div class="wrapper">
+		<div class="container">
+			<input type="checkbox" id="check">
+			<label class="click__mobile" for="check"></label>
+			<h1 class="container__title">ЦЕНТР ОБУЧЕНИЯ<span class="animate-dots">...</span></h1>
+			<div class="list-course list-course__left">
+				<div class="list-course__name list-course__name--left"><h3>ЛЕВЫЙ БЛОК</h3></div>
+				<ul class="list-course__menu">
+					<li><a href="">ГАЛЕРЕЯ</a></li>
+					<li><a href="">ОБУЧЕНИЕ</a></li>
+					<li><a href="">ТЕСТЫ</a></li>
+					<li><a href="">СОБЫТИЯ</a></li>
+				</ul>
+				<div class="list-course__triangle"></div>
+			</div>
+			<div class="list-course list-course__right">
+				<div class="list-course__name list-course__name--right"><h3>ПРАВЫЙ БЛОК</h3></div>
+				<ul class="list-course__menu">
+					<li><a href="">ГАЛЕРЕЯ</a></li>
+					<li><a href="">ОБУЧЕНИЕ</a></li>
+					<li><a href="">ТЕСТЫ</a></li>
+					<li><a href="">СОБЫТИЯ</a></li>
+				</ul>
+				<div class="list-course__triangle"></div>
+			</div>
+		</div>
+	</div>
+	
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script>
+		if($(window).width() >= 1024) {
+			$('.list-course__right').hover(function () {
+				$(this).addClass('moveRight-hover');
+				$(".list-course__left").addClass('moveRight-hover');
+				$('.list-course').addClass('moveLine');
+			}, function () {
+				$(this).removeClass('moveRight-hover');
+				$(".list-course__left").removeClass('moveRight-hover');
+				$('.list-course').removeClass('moveLine');
+			});
+			$('.list-course__left').hover(function () {
+				$(this).addClass('moveLeft-hover');
+				$(".list-course__right").addClass('moveLeft-hover');
+				$('.list-course').addClass('moveLine');
+			}, function () {
+				$(this).removeClass('moveLeft-hover');
+				$(".list-course__right").removeClass('moveLeft-hover');
+				$('.list-course').removeClass('moveLine');
+			});
+		};
+
+		$('.navbar__toggler').click(function () {
+			if($(this).hasClass('clickTransform')) {
+				$(this).removeClass('clickTransform');
+				$(this).addClass('clickTransformBack');
+			} else {
+				$(this).addClass('clickTransform');
+				$(this).removeClass('clickTransformBack');
+			}
+		});
+
+		$.fn.animate_Text = function(speed) {
+		  var string = this.text();
+		  return this.each(function(){
+		   var $this = $(this);
+		    $this.html(string.replace(/./g, '<span class="dot">$&</span>'));
+		     $this.find('span.dot').each(function(i, el){
+		      setTimeout(function(){ $(el).addClass('opacity'); }, speed * i);
+		     });
+		  });
+		 };
+		$('.animate-dots').show();
+		$('.animate-dots').animate_Text(200);
+	</script>
+</body>
+</html>
