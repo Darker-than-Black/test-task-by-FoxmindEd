@@ -81,7 +81,7 @@
 			});
 		};
 
-		$('.navbar__toggler').click(function () {
+		$('.navbar__toggler').on(isMobile ? 'touchend' : 'click', function () {
 			if($(this).hasClass('clickTransform')) {
 				$(this).removeClass('clickTransform');
 				$(this).addClass('clickTransformBack');
